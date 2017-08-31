@@ -4,8 +4,10 @@ var app = app || {};
 (function(module) {
   const articleController = {};
 
-  // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+  // COMMENT/DONE: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
   // (put your response in a comment here)
+  // This function is invoking ctx function and giving it new parameters ctx.articles
+  // lives here but it does call articleView.index function that lives inside articleView.js
   articleController.index = (ctx) => app.articleView.index(ctx.articles);
 
   // REVIEW: Middleware for grabbing one article by ID:
@@ -15,8 +17,10 @@ var app = app || {};
       next();
     };
 
-    // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+    // COMMENT/DONE: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
     // (put your response in a comment here)
+    // Article.findWhere is a function that lives inside article.js, that invokes git request to the articles/find path
+    // It looks for an article_id then passes articleData.
     app.Article.findWhere('article_id', ctx.params.article_id, articleData);
   };
 
